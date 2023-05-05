@@ -1,0 +1,83 @@
+mysql> craete database smch;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'craete database smch' at line 1
+mysql> create database smch;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> use smch;
+Database changed
+mysql> create table medical(
+    -> id int,
+    -> name varchar(50),
+    -> age int
+    -> );
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> desc medical;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int         | YES  |     | NULL    |       |
+| name  | varchar(50) | YES  |     | NULL    |       |
+| age   | int         | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> insert into medical values(id int,name varchar(50),age int);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'int,name varchar(50),age int)' at line 1
+mysql> insert into medical values(1,"ram",18);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select*from medical;
++------+------+------+
+| id   | name | age  |
++------+------+------+
+|    1 | ram  |   18 |
++------+------+------+
+1 row in set (0.00 sec)
+
+mysql> insert into medical values(2,"cgfdshf",34);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into mediacl v alues(3,"fqerj",45);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'v alues(3,"fqerj",45)' at line 1
+mysql> insert into medical values(3,"dfgd",23);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select*from medical;
++------+---------+------+
+| id   | name    | age  |
++------+---------+------+
+|    1 | ram     |   18 |
+|    2 | cgfdshf |   34 |
+|    3 | dfgd    |   23 |
++------+---------+------+
+3 rows in set (0.00 sec)
+
+mysql> alter table medical values( id int, age int);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'values( id int, age int)' at line 1
+mysql> alter table medical add dob varchar(50);
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc medical;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int         | YES  |     | NULL    |       |
+| name  | varchar(50) | YES  |     | NULL    |       |
+| age   | int         | YES  |     | NULL    |       |
+| dob   | varchar(50) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> drop table medical;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> show table;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> show tables;
+Empty set (0.00 sec)
+
+mysql> desc medical;
+ERROR 1146 (42S02): Table 'smch.medical' doesn't exist
+mysql>
