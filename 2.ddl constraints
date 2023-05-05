@@ -1,0 +1,90 @@
+mysql> create database srv;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> use srv;
+Database changed
+mysql> create table students(
+    -> id int NOT NULL,
+    -> name varchar(40),
+    -> dob varchar(40),
+    -> age int
+    -> );
+Query OK, 0 rows affected (0.02 sec)
+mysql> desc students;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int         | NO   |     | NULL    |       |
+| name  | varchar(40) | YES  |     | NULL    |       |
+| dob   | varchar(40) | YES  |     | NULL    |       |
+| age   | int         | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+4 rows in set (0.01 sec)
+
+mysql> create table clgstud(
+    -> id int primary key,
+    -> name varchar (50),
+    -> dob varchar(50),
+    -> age int
+    -> );
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> desc clgstud;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int         | NO   | PRI | NULL    |       |
+| name  | varchar(50) | YES  |     | NULL    |       |
+| dob   | varchar(50) | YES  |     | NULL    |       |
+| age   | int         | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> create table hospital(
+    -> id int ,
+    -> name varchar(60),
+    -> age int ,
+    -> unique(age)
+    -> );
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> desc hospital;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int         | YES  |     | NULL    |       |
+| name  | varchar(60) | YES  |     | NULL    |       |
+| age   | int         | YES  | UNI | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> create table employee(
+    -> eid int,
+    -> ename varchar(80),
+    -> age int ,
+    -> check(age>20)
+    -> );
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> desc employee;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| eid   | int         | YES  |     | NULL    |       |
+| ename | varchar(80) | YES  |     | NULL    |       |
+| age   | int         | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> insert into employee values(1,"ram",24);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> selct*from employee;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selct*from employee' at line 1
+mysql> select*from employee;
++------+-------+------+
+| eid  | ename | age  |
++------+-------+------+
+|    1 | ram   |   24 |
++------+-------+------+
+1 row in set (0.00 sec)
