@@ -1,0 +1,74 @@
+mysql> create database scad;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> use scad;
+Database changed
+mysql> create table student(
+    -> id int ,
+    -> name varchar(60),
+    -> age int,
+    -> dob varchar(78),
+    -> rollno int
+    -> );
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> insert into student values(1,"harish",18,"18/10/04",23);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into student values(2,"niranjan",19,"20/10/04",24);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into student values(3,"monish",20,"03/06/03",25);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into student values(4,"arun",21,"04/02/02",26);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select*from student;
++------+----------+------+----------+--------+
+| id   | name     | age  | dob      | rollno |
++------+----------+------+----------+--------+
+|    1 | harish   |   18 | 18/10/04 |     23 |
+|    2 | niranjan |   19 | 20/10/04 |     24 |
+|    3 | monish   |   20 | 03/06/03 |     25 |
+|    4 | arun     |   21 | 04/02/02 |     26 |
++------+----------+------+----------+--------+
+4 rows in set (0.00 sec)
+
+mysql> select name from student;
++----------+
+| name     |
++----------+
+| harish   |
+| niranjan |
+| monish   |
+| arun     |
++----------+
+4 rows in set (0.00 sec)
+mysql> update student set name="wilfird" where rollno=23;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+mysql> select*from student;
++------+----------+------+----------+--------+
+| id   | name     | age  | dob      | rollno |
++------+----------+------+----------+--------+
+|    1 | wilfird  |   18 | 18/10/04 |     23 |
+|    2 | niranjan |   19 | 20/10/04 |     24 |
+|    3 | monish   |   20 | 03/06/03 |     25 |
+|    4 | arun     |   21 | 04/02/02 |     26 |
++------+----------+------+----------+--------+
+4 rows in set (0.00 sec)
+
+ MySQL server version for the right syntax to use near 'where name="arun"' at line 1
+mysql> delete from student where name="arun";
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select*from student;
++------+----------+------+----------+--------+
+| id   | name     | age  | dob      | rollno |
++------+----------+------+----------+--------+
+|    1 | wilfird  |   18 | 18/10/04 |     23 |
+|    2 | niranjan |   19 | 20/10/04 |     24 |
+|    3 | monish   |   20 | 03/06/03 |     25 |
++------+----------+------+----------+--------+
+3 rows in set (0.00 sec)
